@@ -10,6 +10,9 @@
         <input matInput (keyup)="applyFilter($event)" placeholder="Ingrese apellido de la persona" #input autocomplete="off">
     </mat-form-field>
 
+    <button mat-raised-button color="primary">Agregar</button>
+    <br>
+    <br>  
     <table  matSort mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <!-- Position Column -->
         <ng-container matColumnDef="Cedula">
@@ -53,6 +56,13 @@
             <td mat-cell *matCellDef="let element"> {{element.fecha_nacimiento |  date:"dd/MM/yyyy "}} </td>
         </ng-container>
 
+        <ng-container matColumnDef="Acciones">
+          <th mat-header-cell *matHeaderCellDef>  </th>
+          <td mat-cell *matCellDef="let element" > 
+            <mat-icon class="btnedit" matTooltip="Editar" >edit</mat-icon> 
+            <mat-icon class="btndelete" matTooltip="IEliminar">delete</mat-icon> 
+          </td>
+        </ng-container>  
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

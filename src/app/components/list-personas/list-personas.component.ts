@@ -29,7 +29,7 @@ const listpersonas: Persona[] = [
 export class ListPersonasComponent implements AfterViewInit{
 
 
-  displayedColumns: string[] = ['Cedula', 'Nombre', 'Apellido', 'Telefono','Direccion','Sexo','fecha_Nacimiento'];
+  displayedColumns: string[] = ['Cedula', 'Nombre', 'Apellido', 'Telefono','Direccion','Sexo','fecha_Nacimiento','Acciones'];
   dataSource : MatTableDataSource<Persona>;;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
