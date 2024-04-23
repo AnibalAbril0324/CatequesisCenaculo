@@ -10,7 +10,7 @@
         <input matInput (keyup)="applyFilter($event)" placeholder="Ingrese apellido de la persona" #input autocomplete="off">
     </mat-form-field>
 
-    <button mat-raised-button color="primary">Agregar</button>
+    <button (click)="addEditPersona()" mat-raised-button color="primary">Agregar</button>
     <br>
     <br>  
     <table  matSort mat-table [dataSource]="dataSource" class="mat-elevation-z8">

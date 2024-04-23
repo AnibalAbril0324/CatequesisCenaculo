@@ -1,1 +1,65 @@
-<p>agregar-editar-persona works!</p>
+<h2 mat-dialog-title>Agregar Persona</h2>
+<mat-dialog-content class="mat-typography">
+    
+    <div class="row">
+
+        <div class="column">
+            <mat-form-field appearance="fill">
+                <mat-label>Cedula</mat-label>
+                <input matInput placeholder="Ingrese Cedula" autocomplete="off">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Apellido</mat-label>
+                <input matInput placeholder="Ingrese Apellido" autocomplete="off">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Telefono</mat-label>
+                <input matInput placeholder="Ingrese Telefono" autocomplete="off">
+            </mat-form-field>
+
+
+        </div>
+
+        <div class="column">
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input matInput placeholder="Ingrese Nombre" autocomplete="off">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Direccion</mat-label>
+                <input matInput placeholder="Ingrese Direccion" autocomplete="off">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Sexo</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let item of tipoSexo" [value]="item.value">
+                            {{item.viewValue}}
+                        </mat-option>
+                    </mat-select>
+            </mat-form-field>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <mat-form-field class="example-full-width">
+                <mat-label>Elige Una Fecha</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button (click)="cancelar()">Cancel</button>
+    <button mat-button cdkFocusInitial>Aceptar</button>
+</mat-dialog-actions>
