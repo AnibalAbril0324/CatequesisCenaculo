@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Persona } from 'src/app/interfaces/persona';
 
@@ -12,16 +12,20 @@ export class AgregarEditarPersonaComponent implements OnInit{
 
   tipoSexo: string[] = ['Masculino','Femenino'];
   form: FormGroup;
+  maxDate:Date;
+
   constructor(public dialogRef: MatDialogRef<AgregarEditarPersonaComponent>,private fb:FormBuilder){
+    this.maxDate= new Date();
     this.form = this.fb.group({
+      
       //'Cedula', 'Nombre', 'Apellido', 'Telefono','Direccion','Sexo','fecha_Nacimiento',
-      cedula: [''],
-      nombre: [''],
-      apellido: [''],
-      telefono: [''],
-      direccion: [''],
-      sexo: [null],
-      fecha_nacimiento: [null],
+      cedula: ['',[Validators.required,Validators.maxLength(10),Validators.pattern("^[0-9]*$")]],
+      nombre: ['',[Validators.required,Validators.maxLength(30)]],
+      apellido: ['',[Validators.required,Validators.maxLength(30)]],
+      telefono: ['',[Validators.required,Validators.maxLength(15)]],
+      direccion: ['',[Validators.required,Validators.maxLength(50)]],
+      sexo: [null,Validators.required],
+      fecha_nacimiento: [null,Validators.required],
 
     })
   }
@@ -44,6 +48,6 @@ export class AgregarEditarPersonaComponent implements OnInit{
       sexo: this.form.value.sexo,
       fecha_nacimiento: this.form.value.fecha_nacimiento
     }
-    console.log(persona)
+    console.log(this.form)
   }
 }

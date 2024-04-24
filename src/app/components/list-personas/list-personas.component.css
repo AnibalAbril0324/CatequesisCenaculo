@@ -21,7 +21,7 @@ td, th {
 }
 
 .btndelete{
-    color: red;
+    color: rgb(255, 0, 0);
 }
 .btnedit{
     color: #376DCD;
